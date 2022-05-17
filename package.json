@@ -47,8 +47,7 @@
   },
   "homepage": "https://github.com/zoubingwu/msw-auto-mock",
   "files": [
-    "dist",
-    "bin"
+    "dist"
   ],
   "keywords": [
     "msw",
