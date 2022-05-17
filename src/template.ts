@@ -10,8 +10,8 @@ export const browserMockTemplate = (
 */
 /* eslint-disable */
 /* tslint:disable */
-import { setupWorker, rest } from 'msw';
-import faker from '@faker-js/faker';
+const { rest } = require('msw');
+const { faker } = require('@faker-js/faker');
 
 faker.seed(1);
 
@@ -24,17 +24,12 @@ const gen = (function *() {
     if (i === Number.MAX_SAFE_INTEGER - 1) {
       i = 0;
     }
-    yield i++;
+    yield i;
   }
 })();
 
-export const handlers = [
+exports.handlers = [
   ${handlersCode}
 ];
 
-// This configures a Service Worker with the given request handlers.
-export const startWorker = () => {
-  const worker = setupWorker(...handlers);
-  worker.start();
-}
 `;
